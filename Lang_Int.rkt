@@ -1,4 +1,4 @@
-(define/public ((interp_exp env) e)
+(define ((interp_exp env) e)
     (match e
         [(Int n) n]
         [(Prim ´read ´())
@@ -12,7 +12,7 @@
             (fx- ((interp_exp env) e1) ((interp_exp env) e2))]
     ))
 
-(define/public (interp_program p)
+(define (interp_program p)
     (match p
     [(Program '() e) ((interp_exp '()) e)])
 )
